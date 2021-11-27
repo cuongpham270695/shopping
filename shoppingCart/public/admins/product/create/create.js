@@ -1,7 +1,7 @@
 $(function () {
     $(".tags-select").select2({
         tags: true,
-        tokenSeparators: [',', ' ']
+        tokenSeparators: [',']
     });
     $(".select2-init").select2({
         placeholder: selected,

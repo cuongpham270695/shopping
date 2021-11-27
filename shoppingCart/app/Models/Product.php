@@ -8,9 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'price',
-        'description'
-    ];
+    protected $guarded = [];
+
+    public function images(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ProductImage::class,'product_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class,'product_tags','product_id','tag_id')->withTimestamps();
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
+
 }

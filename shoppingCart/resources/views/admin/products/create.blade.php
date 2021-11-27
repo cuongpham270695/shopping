@@ -51,7 +51,7 @@
 
                             <div class="form-group col-md-6">
                                 <label>
-                                    <select class="form-control select2-init" name="parent_id">
+                                    <select class="form-control select2-init" name="category_id">
                                         <option value="">Select category</option>
                                         {!! $htmlOption !!}
                                     </select>

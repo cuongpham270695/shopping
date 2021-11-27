@@ -67,7 +67,7 @@ class CategoryController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit($id)
     {
         $category = Category::find($id);
         $htmlOption = $this->getCategory($category->parent_id);

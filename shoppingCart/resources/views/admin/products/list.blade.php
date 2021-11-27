@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 @section('title','Home')
+@section('css')
+    <link rel="stylesheet" href="{{asset('admins/product/list/list.css')}}">
+@endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -22,15 +25,15 @@
                             </tr>
                             </thead>
                             <tbody>
-{{--                            @foreach($categories as $key => $category)--}}
+                            @foreach($products as $key => $product)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Iphone X</td>
-                                    <td>5.000.000d</td>
+                                    <th scope="row">{{++$key}}</th>
+                                    <td>{{$product->name}}</td>
+                                    <td>{{$product->price}}</td>
                                     <td>
-                                        <img src="" alt="">
+                                        <img class="product_image" src="{{$product->image}}" alt="">
                                     </td>
-                                    <td>Phone</td>
+                                    <td>{{$product->category->name}}</td>
                                     <td>
                                         <a href=""
                                            class="btn btn-primary">Edit</a>
@@ -39,13 +42,13 @@
                                            onclick="return confirm('Are you sure to delete this category ?')">Delete</a>
                                     </td>
                                 </tr>
-{{--                            @endforeach--}}
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
-{{--                    <div class="col-md-12">--}}
-{{--                        {{$categories->links()}}--}}
-{{--                    </div>--}}
+                    <div class="col-md-12">
+                        {{$products->links()}}
+                    </div>
                 </div>
             </div>
         </div>
