@@ -43,26 +43,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('categories.create')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Add Category
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{route('menus.list')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Menus
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('menus.create')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Add menu
                         </p>
                     </a>
                 </li>
@@ -75,16 +59,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('products.create')}}" class="nav-link">
+                    <a href="{{route('sliders.list')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Add product
+                            Slider
                         </p>
                     </a>
                 </li>
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
 </aside>

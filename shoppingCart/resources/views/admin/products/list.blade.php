@@ -3,6 +3,11 @@
 @section('css')
     <link rel="stylesheet" href="{{asset('admins/product/list/list.css')}}">
 @endsection
+@section('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{asset('admins/product/list/list.js')}}"></script>
+@endsection
+
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -12,6 +17,9 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-12">
+                        <a href="{{route('products.create')}}" class="btn btn-success float-right m-2">Create</a>
+                    </div>
                     <div class="col-md-12">
                         <table class="table table-striped">
                             <thead>
@@ -29,17 +37,23 @@
                                 <tr>
                                     <th scope="row">{{++$key}}</th>
                                     <td>{{$product->name}}</td>
-                                    <td>{{$product->price}}</td>
+                                    <td>{{number_format($product->price)}}</td>
                                     <td>
                                         <img class="product_image" src="{{$product->image}}" alt="">
                                     </td>
-                                    <td>{{$product->category->name}}</td>
                                     <td>
-                                        <a href=""
+                                        @if(empty($product->category->id))
+                                            <p>Don't have category</p>
+                                        @else
+                                            {{$product->category->name}}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{route('products.edit',['id' => $product->id])}}"
                                            class="btn btn-primary">Edit</a>
                                         <a href=""
-                                           class="btn btn-danger"
-                                           onclick="return confirm('Are you sure to delete this category ?')">Delete</a>
+                                           data-url="{{route('products.destroy',['id'=> $product->id])}}"
+                                           class="btn btn-danger action_delete">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
